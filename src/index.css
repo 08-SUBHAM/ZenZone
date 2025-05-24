@@ -1,0 +1,461 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+:root {
+    --primary: #000000;        /* Black */
+    --secondary: #FF6B00;     /* Orange */
+    --secondary-light: #FF8C42; /* Lighter Orange */
+    --secondary-dark: #E65C00;  /* Darker Orange */
+    --white: #FFFFFF;
+    --off-white: #F5F5F5;
+    --text: #333333;
+    --text-light: #666666;
+    --border: #E0E0E0;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fffaf7; /* Very light orange tint */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    transition: transform 0.3s ease, background 0.3s ease, padding 0.3s ease;
+    transform: translateY(0);
+}
+
+/* Navbar when scrolled */
+nav.scrolled {
+    background: rgb(255, 161, 47); /* Light orange tint */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 0;
+}
+
+/* Navbar when hidden */
+nav.hidden {
+    transform: translateY(-100%);
+}
+
+/* Navbar container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05);
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #1e293b;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+/* Hero Section */
+.hero {
+    padding: 180px 0 100px;
+    background: linear-gradient(135deg, #FF8C42 0%, #FF6B00 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    background: white;
+    color: var(--secondary);
+    border: 2px solid white;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: white;
+}
+
+.cta-button.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Features Section */
+.features {
+    padding: 100px 0;
+    background: var(--off-white);
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card.featured {
+    border: 2px solid var(--secondary);
+}
+
+.feature-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--secondary);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.feature-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.feature-benefits {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.feature-benefits li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.feature-benefits li:before {
+    content: "✓";
+    color: var(--secondary);
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+/* Mood Meter Section */
+.mood-meter {
+    padding: 80px 0;
+    background: white;
+    text-align: center;
+}
+
+.mood-meter h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text);
+}
+
+.mood-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--off-white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.mood-display {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 0.5rem;
+}
+
+.mood-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.mood-text p {
+    margin: 0.5rem 0;
+    color: var(--text);
+}
+
+.mood-actions p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.mood-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.mood-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.mood-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mood-btn.active {
+    background: var(--secondary-light);
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.3);
+}
+
+/* Mission Section */
+.mission {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #FF8C42 0%, #FF6B00 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.mission-content {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.mission h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.mission p {
+    font-size: 1.125rem;
+    opacity: 0.9;
+}
+
+.mission-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.125rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .mission-stats {
+        gap: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 140px 0 80px;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mission-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .mood-container {
+        padding: 1rem;
+    }
+    
+    .mood-buttons {
+        gap: 0.5rem;
+    }
+    
+    .mood-btn {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.25rem;
+    }
+}
